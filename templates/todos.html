@@ -1,0 +1,53 @@
+{% extends "index.html" %}
+{% block body %}
+<div class="container my-3">
+            <h2>Your Todos</h2>
+        
+                {% if allTodo|length == 0 %}
+                   
+                <div class="alert alert-dark" role="alert">
+                    No Todos found. Add your first todo now!
+                  </div>
+                    {% else %} 
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">SNo</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Time</th>
+                            <th scope="col">Actions</th>
+                          </tr>
+                        </thead>
+                        
+                        <tbody>
+              {% for todo in allTodo %}
+              <tr>
+                <th scope="row">{{loop.index}}</th>
+                <td>{{todo.title}}</td>
+                <td>{{todo.desc}}</td>
+                <td>{{todo.date_created}}</td>
+                <td>{{ todo.deadline.strftime("%d-%m-%Y %I:%M %p") if todo.deadline else 'No deadline' }}</td>
+  <td>
+    {% if todo.completed %}
+      ✅ Completed
+    {% else %}
+      ❌ Pending
+    {% endif %}
+  </td>
+  <td>
+    <a href="/toggle/{{ todo.sno }}" class="btn btn-success btn-sm">
+      {% if todo.completed %} Undo {% else %} Complete {% endif %}
+    </a>
+    <a href="/update/{{ todo.sno }}" class="btn btn-warning btn-sm">Update</a>
+    <a href="/delete/{{ todo.sno }}" class="btn btn-danger btn-sm">Delete</a>
+  </td>
+</tr>
+{% endfor %}
+            </tbody>
+            </table>
+              {% endif %}
+               
+           
+    </div>
+{% endblock %}
