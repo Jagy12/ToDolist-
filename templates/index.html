@@ -9,54 +9,34 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-        <script src="{{ url_for('static', filename='js/test.js') }}"></script>
-    <title> {% block title %} {% endblock title %} - MyTodo</title>
+    <script src="{{ url_for('static', filename='js/test.js') }}"></script>
+    
+    <title>{% block title %}{% endblock title %} - MyTodo</title>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-<<<<<<< HEAD
-            <a class="navbar-brand" href="/">Home</a>
-=======
-            <a class="navbar-brand" href="/">MyTodo</a>
->>>>>>> 37f0f891c49bd53d8b9f902719ecd98c9f7d32bf
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-<<<<<<< HEAD
-                        <a class="nav-link active" aria-current="page" href="/todos">MyTodo</a>
-=======
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
->>>>>>> 37f0f891c49bd53d8b9f902719ecd98c9f7d32bf
-                    </li>
-                     
-                    
-                </ul>
-<<<<<<< HEAD
-                <form class="d-flex" method="GET" action="/todos">
-                    <input class="form-control me-2" type="search" name="q" placeholder="Search Todos" aria-label="Search">
-=======
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
->>>>>>> 37f0f891c49bd53d8b9f902719ecd98c9f7d32bf
-                    <button class="btn btn-outline-dark" type="submit">Search</button>
-                </form>
-            </div>
-        </div>
-    </nav>
-{% block body %}
-    
-{% endblock body %}
-</body>
+    <!-- Left side navigation -->
+    <a class="navbar-brand text-white fw-bold" href="/">Home</a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/todos">MyTodo</a>
+        </li>
+      </ul>
+    </div>
 
+    <!-- Right side search -->
+    <form class="d-flex" method="GET" action="/todos">
+      <input class="form-control me-2" type="search" name="q" placeholder="Search Todos" aria-label="Search">
+      <button class="btn btn-dark" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+    {% block body %}{% endblock body %}
+</body>
 </html>
